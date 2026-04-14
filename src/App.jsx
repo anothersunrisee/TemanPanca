@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { supabase } from './utils/supabase';
 import SplashScreen from './screens/SplashScreen/SplashScreen';
 import OnboardingScreen from './screens/OnboardingScreen/OnboardingScreen';
 import TourScreen from './screens/TourScreen/TourScreen';
