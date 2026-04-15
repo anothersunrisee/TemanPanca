@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Pencil, UserSearch, Star, Award, Lock, CheckCircle2, UserCog, LogOut, ChevronRight } from 'lucide-react';
+import { Pencil, Shirt, Star, Award, Lock, CheckCircle2, UserCog, LogOut, ChevronRight } from 'lucide-react';
 import MainLayout from '../../layouts/MainLayout';
 import { supabase } from '../../utils/supabase';
 
-export default function ProfileScreen({ userName, character, onNotificationClick, onTabChange }) {
+export default function ProfileScreen({ userName, character, onNotificationClick, onTabChange, onCharacterEdit }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -44,8 +44,11 @@ export default function ProfileScreen({ userName, character, onNotificationClick
             <p className="font-body font-bold text-xs text-primary bg-primary-fixed/50 px-4 py-1.5 rounded-full inline-block mt-2">Level 2 • {character}</p>
           </div>
           
-          <button className="w-full py-4 rounded-full bg-gradient-to-br from-amber-600 to-amber-700 text-white font-headline font-bold text-lg shadow-lg shadow-amber-900/20 transition-transform active:scale-95 flex items-center justify-center gap-2 mt-2">
-            <UserSearch size={22} />
+          <button
+            onClick={onCharacterEdit}
+            className="w-full py-4 rounded-full bg-gradient-to-br from-[#835100] to-[#a46700] text-white font-headline font-bold text-lg shadow-[0_8px_24px_rgba(131,81,0,0.20)] transition-transform active:scale-95 flex items-center justify-center gap-2 mt-2"
+          >
+            <Shirt size={22} />
             Ganti Karakter
           </button>
         </section>

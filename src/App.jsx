@@ -13,6 +13,7 @@ import DetailSilaScreen from './screens/DetailSilaScreen/DetailSilaScreen';
 import BelajarScreen from './screens/BelajarScreen/BelajarScreen';
 import ARScreen from './screens/ARScreen/ARScreen';
 import ProfileScreen from './screens/ProfileScreen/ProfileScreen';
+import KarakterScreen from './screens/KarakterScreen/KarakterScreen';
 
 function App() {
   const [hash, setHash] = useState(window.location.hash);
@@ -29,6 +30,7 @@ function App() {
   const [userName, setUserName] = useState('Developer');
   const [character, setCharacter] = useState('Laki-laki');
   const [showNotifications, setShowNotifications] = useState(false);
+  const [showKarakter, setShowKarakter] = useState(false);
   const [activeTab, setActiveTab] = useState('home'); // Global navigation state
   const [activeSila, setActiveSila] = useState(null); // Tracks selected Sila
   const [activeMateri, setActiveMateri] = useState(null); // Tracks selected learning session
@@ -66,6 +68,7 @@ function App() {
   // Developer Bypass
   if (hash === '#homescreen' || hash === '#homepage') {
     if (showNotifications) return <NotificationScreen onBack={() => setShowNotifications(false)} />;
+    if (showKarakter) return <KarakterScreen onBack={() => setShowKarakter(false)} character={character} onCharacterSave={(gender) => setCharacter(gender)} />;
     
     if (activeMateri) {
       return <BelajarScreen materiId={activeMateri} onClose={() => setActiveMateri(null)} />;
@@ -88,7 +91,7 @@ function App() {
     }
 
     if (activeTab === 'profil') {
-      return <ProfileScreen userName="Developer" character="Laki-laki" onNotificationClick={() => setShowNotifications(true)} onTabChange={setActiveTab} />;
+      return <ProfileScreen userName="Developer" character="Laki-laki" onNotificationClick={() => setShowNotifications(true)} onTabChange={setActiveTab} onCharacterEdit={() => setShowKarakter(true)} />;
     }
     
     return <HomeScreen userName="Developer" character="Laki-laki" onNotificationClick={() => setShowNotifications(true)} onTabChange={setActiveTab} onSilaSelect={setActiveSila} />;
@@ -120,6 +123,10 @@ function App() {
     return <NotificationScreen onBack={() => setShowNotifications(false)} />;
   }
 
+  if (showKarakter) {
+    return <KarakterScreen onBack={() => setShowKarakter(false)} character={character} onCharacterSave={(gender) => setCharacter(gender)} />;
+  }
+
   // Interactive Learning Pipeline
   if (activeMateri) {
     return <BelajarScreen materiId={activeMateri} onClose={() => setActiveMateri(null)} />;
@@ -144,7 +151,7 @@ function App() {
   }
 
   if (activeTab === 'profil') {
-    return <ProfileScreen userName={userName} character={character} onNotificationClick={() => setShowNotifications(true)} onTabChange={setActiveTab} />;
+    return <ProfileScreen userName={userName} character={character} onNotificationClick={() => setShowNotifications(true)} onTabChange={setActiveTab} onCharacterEdit={() => setShowKarakter(true)} />;
   }
 
   // Dashboard / Native Home
