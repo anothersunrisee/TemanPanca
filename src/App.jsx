@@ -23,17 +23,19 @@ function App() {
     return () => window.removeEventListener('hashchange', handleHash);
   }, []);
 
-  const [showSplash, setShowSplash] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [tourFinished, setTourFinished] = useState(false);
-  const [userName, setUserName] = useState('');
-  const [character, setCharacter] = useState(null);
+  const [showSplash, setShowSplash] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [tourFinished, setTourFinished] = useState(true);
+  const [userName, setUserName] = useState('Developer');
+  const [character, setCharacter] = useState('Laki-laki');
   const [showNotifications, setShowNotifications] = useState(false);
   const [activeTab, setActiveTab] = useState('home'); // Global navigation state
   const [activeSila, setActiveSila] = useState(null); // Tracks selected Sila
   const [activeMateri, setActiveMateri] = useState(null); // Tracks selected learning session
 
   useEffect(() => {
+    // DEVELOPMENT BYPASS: Skipping real Supabase auth
+    /*
     supabase.auth.getSession().then(({ data: { session } }) => {
       setIsLoggedIn(!!session);
       if (session?.user?.user_metadata?.full_name) {
@@ -49,6 +51,7 @@ function App() {
     });
 
     return () => subscription.unsubscribe();
+    */
   }, []);
 
   const handleGoogleLogin = async () => {
