@@ -1,4 +1,5 @@
 import React from 'react';
+import { Palette, Rocket, Sprout, Smile } from 'lucide-react';
 
 export default function OnboardingScreen({ onLogin }) {
   return (
@@ -8,13 +9,13 @@ export default function OnboardingScreen({ onLogin }) {
         <div className="absolute top-[10%] left-[5%] w-64 h-64 bg-primary-fixed/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-[15%] right-[5%] w-80 h-80 bg-tertiary-fixed/20 rounded-full blur-3xl"></div>
         <div className="absolute top-12 left-12 hidden lg:block opacity-20 rotate-[-15deg]">
-          <span className="material-symbols-outlined text-8xl text-primary">palette</span>
+          <Palette size={96} strokeWidth={1} className="text-primary" />
         </div>
         <div className="absolute bottom-12 right-12 hidden lg:block opacity-20 rotate-[15deg]">
-          <span className="material-symbols-outlined text-8xl text-tertiary">rocket_launch</span>
+          <Rocket size={96} strokeWidth={1} className="text-tertiary" />
         </div>
         <div className="absolute top-1/4 right-20 hidden lg:block opacity-10 rotate-[5deg]">
-          <span className="material-symbols-outlined text-9xl text-secondary">potted_plant</span>
+          <Sprout size={128} strokeWidth={1} className="text-secondary" />
         </div>
       </div>
 
@@ -67,7 +68,7 @@ export default function OnboardingScreen({ onLogin }) {
               <span className="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
             </div>
             <p className="font-body text-sm font-semibold text-on-surface-variant flex items-center gap-2">
-              <span className="material-symbols-outlined text-amber-500 text-lg">face</span>
+              <Smile size={20} className="text-amber-500" />
               Gunakan bantuan orang tua ya 😊
             </p>
           </div>

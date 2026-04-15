@@ -9,19 +9,19 @@ export const SILA_DATA = {
     "themeColor": "amber",
     "materiList": [
       { 
-        id: 's1_m1', title: 'Berdoa Sebelum Belajar', sub: 'Mengenal kebiasaan religius', icon: 'menu_book', 
+        id: 's1_m1', title: 'Berdoa Sebelum Belajar', sub: 'Mengenal kebiasaan religius', icon: 'BookOpen', 
         badgeBg: 'bg-amber-100', badgeText: 'text-amber-900', titleCol: 'text-amber-800',
         iconBg: 'bg-amber-50', iconCol: 'text-amber-600', iconBorder: 'border-amber-100',
         btnGrad: 'from-amber-500 to-amber-600', btnShadow: 'shadow-amber-900/20'
       },
       { 
-        id: 's1_m2', title: 'Menghormati Teman', sub: 'Sikap toleransi antar agama', icon: 'diversity_3', 
+        id: 's1_m2', title: 'Menghormati Teman', sub: 'Sikap toleransi antar agama', icon: 'Users', 
         badgeBg: 'bg-emerald-100', badgeText: 'text-emerald-900', titleCol: 'text-emerald-800',
         iconBg: 'bg-emerald-50', iconCol: 'text-emerald-600', iconBorder: 'border-emerald-100',
         btnGrad: 'from-emerald-500 to-emerald-600', btnShadow: 'shadow-emerald-900/20'
       },
       { 
-        id: 's1_m3', title: 'Rajin Beribadah', sub: 'Mendekatkan diri pada Tuhan', icon: 'mosque', 
+        id: 's1_m3', title: 'Rajin Beribadah', sub: 'Mendekatkan diri pada Tuhan', icon: 'Heart', 
         badgeBg: 'bg-blue-100', badgeText: 'text-blue-900', titleCol: 'text-blue-800',
         iconBg: 'bg-blue-50', iconCol: 'text-blue-600', iconBorder: 'border-blue-100',
         btnGrad: 'from-blue-500 to-blue-600', btnShadow: 'shadow-blue-900/20'

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { X, Heart, Info, Award, Star, ArrowRight } from 'lucide-react';
 import { MATERI_DATA } from '../../data/materiData';
 
 export default function BelajarScreen({ materiId, onClose }) {
@@ -68,7 +69,7 @@ export default function BelajarScreen({ materiId, onClose }) {
         <header className="absolute top-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100">
           <div className="flex justify-between items-center px-6 py-4">
             <button onClick={onClose} className="text-amber-700 hover:bg-slate-100 p-2 rounded-full transition-colors active:scale-95 flex items-center">
-              <span className="material-symbols-outlined">close</span>
+              <X size={24} />
             </button>
             
             {/* Progress Bar */}
@@ -80,7 +81,7 @@ export default function BelajarScreen({ materiId, onClose }) {
             </div>
 
             <div className="flex items-center gap-1.5 px-3 py-1 bg-amber-50 rounded-full border border-amber-100">
-              <span className="material-symbols-outlined text-amber-500 text-sm" style={{fontVariationSettings: "'FILL' 1"}}>favorite</span>
+              <Heart className="text-amber-500 fill-amber-500" size={16} />
               <span className="font-headline font-bold text-amber-800 text-sm">5</span>
             </div>
           </div>
@@ -193,7 +194,7 @@ export default function BelajarScreen({ materiId, onClose }) {
 
                       {showFeedback && (
                         <div className="mt-5 p-4 rounded-2xl bg-blue-50 border border-blue-200 text-blue-800 font-bold font-body text-sm animate-fade-in text-left flex gap-3 items-start">
-                          <span className="material-symbols-outlined text-blue-500 mt-0.5">info</span>
+                          <Info size={20} className="text-blue-500 mt-0.5 shrink-0" />
                           <span className="leading-relaxed">{materi.quiz[quizIndex].explanation}</span>
                         </div>
                       )}
@@ -205,7 +206,7 @@ export default function BelajarScreen({ materiId, onClose }) {
               // REWARD PHASE
               <div className="text-center space-y-6 w-full animate-fade-in flex flex-col items-center justify-center pt-8">
                  <div className="w-32 h-32 bg-gradient-to-br from-amber-300 to-amber-500 rounded-full flex items-center justify-center animate-[bimo-bob_4s_ease-in-out_infinite] shadow-xl border-4 border-white mb-2">
-                    <span className="material-symbols-outlined text-white text-[70px]" style={{fontVariationSettings: "'FILL' 1"}}>workspace_premium</span>
+                    <Award size={70} className="text-white" />
                  </div>
                  <div>
                    <h2 className="font-headline text-3xl font-black text-slate-800 leading-tight">Luar Biasa!</h2>
@@ -214,7 +215,7 @@ export default function BelajarScreen({ materiId, onClose }) {
                  
                  <div className="bg-emerald-50 border-2 border-emerald-200 rounded-3xl p-6 px-10 w-full space-y-2 relative overflow-hidden shadow-sm mt-4">
                     <div className="absolute -right-6 -top-6 text-emerald-500/10 rotate-12">
-                      <span className="material-symbols-outlined text-[150px]" style={{fontVariationSettings: "'FILL' 1"}}>stars</span>
+                      <Star size={150} className="text-emerald-500/20 fill-emerald-500/20" />
                     </div>
                     <p className="text-emerald-700 font-headline font-bold text-sm tracking-widest uppercase relative z-10">Poin Didapat</p>
                     <h3 className="text-emerald-600 font-black text-6xl relative z-10 flex justify-center items-center gap-1">
@@ -238,7 +239,7 @@ export default function BelajarScreen({ materiId, onClose }) {
             }`}
           >
             <span>{phase === 'reward' ? 'Selesai & Tutup' : (isModuleLocked ? 'Pilih Jawaban' : 'Lanjut')}</span>
-            {!isModuleLocked && <span className="material-symbols-outlined">arrow_forward</span>}
+            {!isModuleLocked && <ArrowRight size={24} />}
           </button>
         </footer>
 

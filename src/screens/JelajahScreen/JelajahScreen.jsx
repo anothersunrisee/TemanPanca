@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Star, ArrowRight, ChevronRight } from 'lucide-react';
 import MainLayout from '../../layouts/MainLayout';
 
 const MAP_IMG = "https://lh3.googleusercontent.com/aida-public/AB6AXuASRe5iH7xRqeKAol_ye77u7snNdszKmumBbHsafGdm7k4lqwrlBgcmRaKyNAxoq5iOKysHJ5kXmYSOzygimbcpKbRpcxh5Kde3QVIQG68UY2bXRiCbkNXysfDO_4HsH7iGsHJ-qx6w7KoDLmMCtqfDxvs9tNy8VeOK8jXZjKoczenGLoEcbHfOmZ4zM_A6v7KojP3fQewpQ0t6duNK2g6-ptNHyLUuhsIl57uVJtplLDxQlPWaVfEb28CsVftXa6Gk1FZl7ZBpw3c";
@@ -25,7 +26,7 @@ export default function JelajahScreen({ userName, character, onNotificationClick
 
   return (
     <MainLayout activeTab="jelajah" userName={userName} character={character} onNotificationClick={onNotificationClick} onTabChange={onTabChange}>
-      <div className="px-6 mb-8 mt-2">
+      <div className="px-6 mb-8 pt-6">
         {/* Hero Section: Illustrative Map */}
         <section className="relative mb-12" style={cascadeStyle(0.1)}>
           <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden shadow-xl shadow-slate-200/50">
@@ -84,7 +85,7 @@ export default function JelajahScreen({ userName, character, onNotificationClick
               <div className="flex-1">
                 <div className="flex justify-between items-start">
                   <span className="font-headline text-[10px] uppercase font-bold text-primary tracking-widest bg-primary-fixed/30 px-3 py-1 rounded-full mb-3 inline-block">Sila 1</span>
-                  <span className="material-symbols-outlined text-amber-500 text-xl" style={{fontVariationSettings: "'FILL' 1"}}>stars</span>
+                  <Star className="text-amber-500 fill-amber-500" size={20} />
                 </div>
                 <h2 className="font-headline text-lg font-bold text-on-surface leading-tight">Ketuhanan Yang Maha Esa</h2>
                 <p className="font-body text-xs text-slate-500 mt-1.5 font-medium">Dipandu oleh Bimo</p>
@@ -106,7 +107,7 @@ export default function JelajahScreen({ userName, character, onNotificationClick
               className="w-full mt-6 py-3.5 rounded-full bg-gradient-to-br from-amber-600 to-amber-700 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-900/20 active:scale-95 transition-transform"
             >
               Lanjut Belajar
-              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              <ArrowRight size={16} />
             </button>
           </div>
 
@@ -134,7 +135,7 @@ export default function JelajahScreen({ userName, character, onNotificationClick
                 </div>
               </div>
               <div className="absolute top-5 right-5 text-slate-300">
-                <span className="material-symbols-outlined text-2xl">arrow_forward_ios</span>
+                <ChevronRight size={24} />
               </div>
             </div>
           ))}

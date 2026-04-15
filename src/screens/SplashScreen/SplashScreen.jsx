@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Loader2 } from 'lucide-react';
 
 export default function SplashScreen({ onFinish }) {
   const [progress, setProgress] = useState(0);
@@ -53,9 +54,7 @@ export default function SplashScreen({ onFinish }) {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-outline animate-spin text-sm">
-              progress_activity
-            </span>
+            <Loader2 size={16} className="text-outline animate-spin" />
             <p className="font-label text-[11px] font-semibold uppercase tracking-widest text-on-surface-variant/80">
               Menyiapkan Petualangan {Math.floor(progress)}%
             </p>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ArrowLeft, Sparkles, Award, BookOpen } from 'lucide-react';
 
 const MASCOT_IMG = "https://lh3.googleusercontent.com/aida-public/AB6AXuAkPWWNdtZD6qxrYYXg9PVnQvcCmxqp6MsfH2J70-iaVdQjERd1k4nceLjQ4CPtDlagab2NaoZ_CFFcyv7lib8M3_McdAdotE1kYLy68SJ1eC9mrQQinN2knWsEzTkqdQ6wo1EkwR_196R5FzqAo7tLIt95NRftN4pt0gkbau0H9MaVQDsFFw_fk_-9THSAhZ6Ga9DkGspsu60bTUw8GhSla-xFdaqVjL9tZ-iE1WFRvMly60qPAmxn98Y6YErsprMZnY7o3y-x0QQ";
 
@@ -26,9 +27,9 @@ export default function NotificationScreen({ onBack }) {
           <div className="flex items-center px-4 h-16 w-full mx-auto">
             <button 
               onClick={onBack}
-              className="material-symbols-outlined text-amber-700 p-2 hover:bg-surface-container-low transition-colors active:scale-95 duration-200 rounded-full"
+              className="text-amber-700 p-2 hover:bg-surface-container-low transition-colors active:scale-95 duration-200 rounded-full"
             >
-              arrow_back
+              <ArrowLeft size={24} />
             </button>
             <h1 className="font-headline tracking-tight ml-2 text-on-surface font-bold text-xl">Notifikasi</h1>
           </div>
@@ -45,7 +46,7 @@ export default function NotificationScreen({ onBack }) {
             {/* Notification Item 1 */}
             <div className="bg-white p-5 rounded-2xl shadow-[0_8px_24px_rgba(25,28,29,0.06)] flex gap-4 items-start cursor-pointer active:scale-[0.98] transition-transform duration-200 border border-slate-100" style={cascadeStyle(0.1)}>
               <div className="bg-primary-fixed/30 w-12 h-12 rounded-full flex items-center justify-center shrink-0">
-                <span className="material-symbols-outlined text-primary text-2xl">auto_awesome</span>
+                <Sparkles size={24} className="text-primary" />
               </div>
               <div className="flex-1">
                 <div className="flex justify-between items-start mb-1">
@@ -64,7 +65,7 @@ export default function NotificationScreen({ onBack }) {
             {/* Notification Item 2 */}
             <div className="bg-white p-5 rounded-2xl shadow-[0_8px_24px_rgba(25,28,29,0.06)] flex gap-4 items-start cursor-pointer active:scale-[0.98] transition-transform duration-200 border border-slate-100" style={cascadeStyle(0.2)}>
               <div className="bg-tertiary-fixed w-12 h-12 rounded-full flex items-center justify-center shrink-0">
-                <span className="material-symbols-outlined text-tertiary-fixed-dim text-2xl" style={{fontVariationSettings: "'FILL' 1"}}>workspace_premium</span>
+                <Award size={24} className="text-tertiary-fixed-dim" />
               </div>
               <div className="flex-1">
                 <div className="flex justify-between items-start mb-1">
@@ -83,7 +84,7 @@ export default function NotificationScreen({ onBack }) {
             {/* Notification Item 3 */}
             <div className="bg-surface-container-low/30 p-5 rounded-2xl shadow-[0_8px_24px_rgba(25,28,29,0.04)] flex gap-4 items-start cursor-pointer active:scale-[0.98] transition-transform duration-200 border border-slate-50 opacity-70" style={cascadeStyle(0.4)}>
               <div className="bg-secondary-container w-12 h-12 rounded-full flex items-center justify-center shrink-0">
-                <span className="material-symbols-outlined text-secondary text-2xl">menu_book</span>
+                <BookOpen size={24} className="text-secondary" />
               </div>
               <div className="flex-1">
                 <div className="flex justify-between items-start mb-1">

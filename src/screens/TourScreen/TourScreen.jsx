@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, createElement } from 'react';
+import * as Icons from 'lucide-react';
 
 const SLIDES = [
   {
@@ -6,24 +7,24 @@ const SLIDES = [
     title: "Yuk belajar Pancasila dengan cara seru!",
     desc: "Bermain dan belajar nilai-nilai luhur menjadi lebih menyenangkan.",
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBa4uAWG00QWpE_zhYIXfpgWQU3G85fae5ttab6XhLsebw-llqdFYrzzZ0WVQAATYrvCN4oOJXm2xC4SlTkO8VoD8hvULPMHqkmTVACuUsK93Pz8l0QktEq2QnZSQktIrywALUYRNKYbJ4FQN8sY7w_LZv0opaoUFvsD7_3OftLMapfVGcBGl4Sn28f0X3sLGzokWQCWSCBFlC694AmRybYztci--9dDTvlDjYZHu2GnqHcOBfWSi0KtgqkOWtBBGLFOmT6Z3RiFbY",
-    icon1: "auto_stories",
-    icon2: "local_library"
+    icon1: "BookOpen",
+    icon2: "Library"
   },
   {
     id: 1,
     title: "Ada cerita, misi, dan quiz!",
     desc: "Selesaikan setiap misi dan kumpulkan berbagai lencana pencapaian.",
     image: "/Logo.png",
-    icon1: "emoji_events",
-    icon2: "extension"
+    icon1: "Trophy",
+    icon2: "Puzzle"
   },
   {
     id: 2,
     title: "Bisa lihat AR juga!",
     desc: "Nikmati pengalaman belajar yang lebih nyata dengan teknologi Augmented Reality di setiap cerita.",
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB5PjpKPvBcLvGVTfnQEBhoQhkb415AePpOkNa2nxIDm5NNOdQ3C95RrOSJfmGEMQ7sO__odqqN1KJ11_mJGV7eiW7O6GUk5Qk79Y9XPmU0L2NXnk399fXlWW95JsNQRHuaANnEMfV0JS4vT0DhWEyHxpbjQ16iDmxPxNbFBKz5VhysgfdxDCFuWjfZ-l8MPptNSgV56dr5nPVVy-BXO5fztrv0G_V_ZviNN22nKg1xm9CdNlv2t2dn9QZ0LGb-azWe0q8H050NVbg",
-    icon1: "view_in_ar",
-    icon2: "auto_awesome"
+    icon1: "Box",
+    icon2: "Sparkles"
   }
 ];
 
@@ -59,10 +60,10 @@ export default function TourScreen({ onFinishTour }) {
             />
             {/* Floating Icons */}
             <div className="absolute top-[5%] right-[0%] z-20 bg-[#F8F7F6]/80 backdrop-blur-md p-2 rounded-full shadow-sm border border-outline-variant/10 -rotate-12 animate-bounce flex items-center justify-center">
-              <span className="material-symbols-outlined text-tertiary-fixed-dim text-xl">{slide.icon1}</span>
+              {createElement(Icons[slide.icon1] || Icons.HelpCircle, {size: 20, className: "text-tertiary-fixed-dim"})}
             </div>
             <div className="absolute bottom-[5%] left-[0%] z-20 bg-[#F8F7F6]/80 backdrop-blur-md p-2 rounded-full shadow-sm border border-outline-variant/10 rotate-12 animate-pulse flex items-center justify-center">
-              <span className="material-symbols-outlined text-primary text-xl">{slide.icon2}</span>
+              {createElement(Icons[slide.icon2] || Icons.HelpCircle, {size: 20, className: "text-primary"})}
             </div>
           </div>
 
@@ -98,7 +99,7 @@ export default function TourScreen({ onFinishTour }) {
             className="w-full max-w-[340px] mx-auto py-4 px-6 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-full font-headline font-bold text-lg shadow-lg shadow-primary/20 hover:scale-[0.98] active:scale-95 transition-transform duration-150 flex items-center justify-center gap-3"
           >
             <span>{isLast ? "Mulai Petualangan" : "Selanjutnya"}</span>
-            <span className="material-symbols-outlined font-bold text-xl">arrow_forward</span>
+            <Icons.ArrowRight size={24} />
           </button>
         </section>
 

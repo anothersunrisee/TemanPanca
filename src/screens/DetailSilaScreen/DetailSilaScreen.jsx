@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createElement } from 'react';
+import * as Icons from 'lucide-react';
 import { SILA_DATA } from '../../data/silaData';
 
 export default function DetailSilaScreen({ silaId, onBack, onMateriSelect }) {
@@ -29,7 +30,7 @@ export default function DetailSilaScreen({ silaId, onBack, onMateriSelect }) {
               onClick={onBack}
               className={`hover:bg-slate-100 transition-colors p-2 rounded-full active:scale-95 flex items-center justify-center text-${currentSila.themeColor}-700`}
             >
-              <span className="material-symbols-outlined text-2xl">arrow_back</span>
+              <Icons.ArrowLeft size={24} />
             </button>
             <h2 className={`font-headline font-bold text-lg text-${currentSila.themeColor}-700 leading-tight tracking-tight`}>
               Sila {currentSila.id} – {currentSila.title.split(' ')[0]}
@@ -85,7 +86,7 @@ export default function DetailSilaScreen({ silaId, onBack, onMateriSelect }) {
                     <div className="flex items-center gap-2 mb-2">
                       <span className={`${m.badgeBg} ${m.badgeText} text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider`}>Materi {idx + 1}</span>
                       <span className="flex items-center gap-1 text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
-                        <span className="material-symbols-outlined text-[14px]" style={{fontVariationSettings: "'FILL' 1"}}>check_circle</span>
+                        <Icons.CheckCircle2 size={14} className="fill-emerald-100" />
                         Tersedia
                       </span>
                     </div>
@@ -93,13 +94,14 @@ export default function DetailSilaScreen({ silaId, onBack, onMateriSelect }) {
                     <p className="text-slate-500 text-sm mt-1 font-body font-medium">{m.sub}</p>
                   </div>
                   <div className={`w-14 h-14 ${m.iconBg} rounded-full flex items-center justify-center ${m.iconCol} shrink-0 shadow-sm border ${m.iconBorder}`}>
-                    <span className="material-symbols-outlined text-[28px]" style={{fontVariationSettings: "'FILL' 1"}}>{m.icon}</span>
+                    {createElement(Icons[m.icon] || Icons.HelpCircle, { size: 28, className: "fill-current opacity-20 absolute" })}
+                    {createElement(Icons[m.icon] || Icons.HelpCircle, { size: 28, className: "relative z-10" })}
                   </div>
                 </div>
                 <div className="mt-5 flex justify-end">
-                  <button className={`bg-gradient-to-br ${m.btnGrad} text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-md ${m.btnShadow} active:scale-95 transition-all w-full flex justify-center gap-2`}>
+                  <button className={`bg-gradient-to-br ${m.btnGrad} text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-md ${m.btnShadow} active:scale-95 transition-all w-full flex justify-center gap-2 items-center`}>
                     Mulai Belajar
-                    <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    <Icons.ArrowRight size={18} />
                   </button>
                 </div>
               </div>

@@ -1,16 +1,17 @@
 import React from 'react';
+import { Home, Compass, Target, Box, User } from 'lucide-react';
 
 const TABS = [
-  { id: 'home', label: 'Home', icon: 'home' },
-  { id: 'jelajah', label: 'Jelajah', icon: 'explore' },
-  { id: 'misi', label: 'Misi', icon: 'assignment' },
-  { id: 'ar', label: 'AR', icon: 'view_in_ar' },
-  { id: 'profil', label: 'Profil', icon: 'person' },
+  { id: 'home', label: 'Home', icon: Home },
+  { id: 'jelajah', label: 'Jelajah', icon: Compass },
+  { id: 'misi', label: 'Misi', icon: Target },
+  { id: 'ar', label: 'AR', icon: Box },
+  { id: 'profil', label: 'Profil', icon: User },
 ];
 
 export default function BottomNavBar({ activeTab = 'home', onTabChange }) {
   return (
-    <nav className="fixed bottom-0 w-full max-w-[440px] bg-white/90 backdrop-blur-xl flex justify-around items-center px-4 pb-6 pt-3 z-50 rounded-t-[2rem] shadow-[0_-8px_24px_rgba(25,28,29,0.06)] border-t border-slate-100">
+    <nav className="shrink-0 w-full bg-white/90 backdrop-blur-xl flex justify-around items-center px-4 pb-6 pt-3 z-50 rounded-t-[2rem] shadow-[0_-8px_24px_rgba(25,28,29,0.06)] border-t border-slate-100">
       {TABS.map(tab => {
         const isActive = activeTab === tab.id;
         return (
@@ -23,7 +24,7 @@ export default function BottomNavBar({ activeTab = 'home', onTabChange }) {
                 : 'text-slate-400 hover:text-amber-600 p-2'
             }`}
           >
-            <span className="material-symbols-outlined" style={{fontVariationSettings: isActive ? "'FILL' 1" : "'FILL' 0"}}>{tab.icon}</span>
+            <tab.icon size={22} className={isActive ? 'text-white' : ''} strokeWidth={isActive ? 2.5 : 2} />
             <span className="font-body text-[10px] font-medium mt-1">{tab.label}</span>
           </button>
         );

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BookOpen, Puzzle, ArrowRight } from 'lucide-react';
 
 export default function RegisterScreen({ onNameSubmit }) {
   const [name, setName] = useState('');
@@ -20,10 +21,10 @@ export default function RegisterScreen({ onNameSubmit }) {
         
         {/* Floating Icons */}
         <div className="absolute bottom-10 left-10 text-outline-variant/40 hidden md:flex flex-col gap-4">
-          <span className="material-symbols-outlined text-6xl rotate-12">auto_stories</span>
+          <BookOpen size={64} className="rotate-12" />
         </div>
         <div className="absolute top-10 right-10 text-outline-variant/40 hidden md:flex flex-col gap-4">
-          <span className="material-symbols-outlined text-6xl -rotate-12">extension</span>
+          <Puzzle size={64} className="-rotate-12" />
         </div>
       </div>
 
@@ -68,7 +69,7 @@ export default function RegisterScreen({ onNameSubmit }) {
             className="group relative w-full max-w-[340px] mx-auto flex items-center justify-center gap-3 bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold text-xl py-4 rounded-full shadow-[0_12px_32px_rgba(131,81,0,0.15)] hover:scale-[0.98] active:scale-95 transition-all duration-200"
           >
             <span>Lanjut</span>
-            <span className="material-symbols-outlined font-bold text-2xl transition-transform group-hover:translate-x-1">arrow_forward</span>
+            <ArrowRight size={24} className="transition-transform group-hover:translate-x-1" />
           </button>
         </form>
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Star, ArrowRight, Target } from 'lucide-react';
 import MainLayout from '../../layouts/MainLayout';
 import { BOY_IMG, GIRL_IMG } from '../../components/TopAppBar';
 
@@ -91,7 +92,7 @@ export default function HomeScreen({ userName, character, onNotificationClick, o
           </div>
         </div>
         <div className="flex items-center gap-2 bg-primary-fixed/30 px-4 py-2.5 rounded-xl ml-auto border border-primary-fixed/20 shadow-sm">
-          <span className="material-symbols-outlined text-amber-700 text-xl" style={{fontVariationSettings: "'FILL' 1"}}>stars</span>
+          <Star size={20} className="text-amber-700 fill-amber-700" />
           <div className="flex flex-col items-start leading-none gap-0.5">
             <span className="font-headline font-black text-[15px] text-amber-800">1,250</span>
             <span className="font-body text-[9px] font-bold text-amber-700 uppercase tracking-widest">Poin</span>
@@ -148,7 +149,7 @@ export default function HomeScreen({ userName, character, onNotificationClick, o
         <div className="flex justify-between items-end mb-6">
           <h2 className="font-headline font-extrabold text-2xl text-on-surface">Progres Sila</h2>
           <button className="text-primary font-bold text-sm flex items-center gap-1 hover:underline">
-            Lihat Detail <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            Lihat Detail <ArrowRight size={16} />
           </button>
         </div>
         
@@ -189,7 +190,7 @@ export default function HomeScreen({ userName, character, onNotificationClick, o
             <h4 className="font-headline font-bold text-on-secondary-container">Misi Harian</h4>
             <p className="text-sm font-body text-on-secondary-container/80 mt-1">Selesaikan 2 misi hari ini!</p>
           </div>
-          <span className="material-symbols-outlined text-6xl text-white/40 absolute -right-4 -bottom-2 transition-transform group-hover:scale-110 group-hover:-rotate-12" style={{fontVariationSettings: "'FILL' 1"}}>assignment</span>
+          <Target size={72} strokeWidth={1.5} className="text-white/40 absolute -right-4 -bottom-2 transition-transform group-hover:scale-110 group-hover:-rotate-12" />
         </div>
       </section>
     </MainLayout>

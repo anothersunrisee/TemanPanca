@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { PenTool, Star, Rocket } from 'lucide-react';
 
 export default function CharacterScreen({ onCharacterSelect }) {
   const [selectedGender, setSelectedGender] = useState(null);
@@ -16,12 +17,12 @@ export default function CharacterScreen({ onCharacterSelect }) {
       <div className="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none">
         <div className="absolute top-24 left-10 pointer-events-none opacity-20 hidden lg:block">
           <div className="w-24 h-24 rounded-xl rotate-12 bg-primary-fixed border-4 border-white shadow-lg flex items-center justify-center">
-            <span className="material-symbols-outlined text-4xl text-primary">draw</span>
+            <PenTool size={36} className="text-primary" />
           </div>
         </div>
         <div className="absolute bottom-32 right-10 pointer-events-none opacity-20 hidden lg:block">
           <div className="w-32 h-32 rounded-full -rotate-6 bg-tertiary-fixed border-4 border-white shadow-lg flex items-center justify-center">
-            <span className="material-symbols-outlined text-5xl text-tertiary">star</span>
+            <Star size={48} className="text-tertiary fill-tertiary" />
           </div>
         </div>
       </div>
@@ -96,7 +97,7 @@ export default function CharacterScreen({ onCharacterSelect }) {
             }`}
           >
             Mulai Petualangan
-            <span className="material-symbols-outlined font-bold text-2xl">rocket_launch</span>
+            <Rocket size={24} />
           </button>
         </div>
       </main>
