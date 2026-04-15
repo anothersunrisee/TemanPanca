@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Heart, Info, Award, Star, ArrowRight } from 'lucide-react';
 import { MATERI_DATA } from '../../data/materiData';
 
@@ -12,6 +12,17 @@ export default function BelajarScreen({ materiId, onClose }) {
   const [score, setScore] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
+
+  // Save completion to localStorage when reward phase is reached
+  useEffect(() => {
+    if (phase === 'reward') {
+      const completed = JSON.parse(localStorage.getItem('completedMateri') || '[]');
+      if (!completed.includes(materiId)) {
+        completed.push(materiId);
+        localStorage.setItem('completedMateri', JSON.stringify(completed));
+      }
+    }
+  }, [phase, materiId]);
 
   // Compute absolute progress
   const totalSteps = materi.slides.length + 1 + materi.quiz.length; 
