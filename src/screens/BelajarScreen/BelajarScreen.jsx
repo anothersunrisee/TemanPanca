@@ -16,10 +16,25 @@ export default function BelajarScreen({ materiId, onClose }) {
   // Save completion to localStorage when reward phase is reached
   useEffect(() => {
     if (phase === 'reward') {
+      // 1. All-time completed list
       const completed = JSON.parse(localStorage.getItem('completedMateri') || '[]');
       if (!completed.includes(materiId)) {
         completed.push(materiId);
         localStorage.setItem('completedMateri', JSON.stringify(completed));
+      }
+
+      // 2. Daily progress (reset if new day)
+      const today = new Date().toISOString().split('T')[0];
+      const daily = JSON.parse(localStorage.getItem('dailyProgress') || '{}');
+      if (daily.date !== today) {
+        localStorage.setItem('dailyProgress', JSON.stringify({
+          date: today,
+          materiCompletedToday: [materiId],
+          claimedMissions: []
+        }));
+      } else if (!daily.materiCompletedToday?.includes(materiId)) {
+        daily.materiCompletedToday = [...(daily.materiCompletedToday || []), materiId];
+        localStorage.setItem('dailyProgress', JSON.stringify(daily));
       }
     }
   }, [phase, materiId]);

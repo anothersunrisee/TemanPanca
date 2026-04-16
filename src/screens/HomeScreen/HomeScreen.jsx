@@ -85,6 +85,12 @@ export default function HomeScreen({ userName, character, onNotificationClick, o
   const totalMateri    = Object.values(SILA_DATA).reduce((acc, s) => acc + (s.materiList?.length ?? 0), 0);
   const totalCompleted = completedMateri.length;
   const overallPercent = totalMateri > 0 ? Math.round((totalCompleted / totalMateri) * 100) : 0;
+  
+  // Total points
+  const basePoints = totalCompleted * 150;
+  const missionPoints = parseInt(localStorage.getItem('missionPoints') || '0', 10);
+  const spentPoints = parseInt(localStorage.getItem('spentPoints') || '0', 10);
+  const totalPoints = basePoints + missionPoints - spentPoints;
 
   useEffect(() => {
     const mountTimer = setTimeout(() => setMounted(true), 50);
@@ -115,7 +121,7 @@ export default function HomeScreen({ userName, character, onNotificationClick, o
         <div className="flex items-center gap-2 bg-primary-fixed/30 px-4 py-2.5 rounded-xl ml-auto border border-primary-fixed/20 shadow-sm">
           <Star size={20} className="text-amber-700 fill-amber-700" />
           <div className="flex flex-col items-start leading-none gap-0.5">
-            <span className="font-headline font-black text-[15px] text-amber-800">{totalCompleted * 150}</span>
+            <span className="font-headline font-black text-[15px] text-amber-800">{totalPoints}</span>
             <span className="font-body text-[9px] font-bold text-amber-700 uppercase tracking-widest">Poin</span>
           </div>
         </div>

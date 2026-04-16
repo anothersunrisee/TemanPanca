@@ -1,15 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import { Pencil, Shirt, Star, Award, Lock, CheckCircle2, UserCog, LogOut, ChevronRight } from 'lucide-react';
+import { Pencil, Shirt, Star, Award, Lock, CheckCircle2, UserCog, LogOut, ChevronRight, ShieldCheck } from 'lucide-react';
 import MainLayout from '../../layouts/MainLayout';
 import { supabase } from '../../utils/supabase';
+import { SILA_DATA } from '../../data/silaData';
 
 export default function ProfileScreen({ userName, character, onNotificationClick, onTabChange, onCharacterEdit }) {
   const [mounted, setMounted] = useState(false);
+  const [completedMateri, setCompletedMateri] = useState([]);
+  const [missionPoints, setMissionPoints] = useState(0);
+  const [dailyData, setDailyData] = useState({ claimedMissions: [] });
 
   useEffect(() => {
     const timer = setTimeout(() => setMounted(true), 50);
+    
+    setCompletedMateri(JSON.parse(localStorage.getItem('completedMateri') || '[]'));
+    setMissionPoints(parseInt(localStorage.getItem('missionPoints') || '0', 10));
+
+    const today = new Date().toISOString().split('T')[0];
+    const storedDaily = JSON.parse(localStorage.getItem('dailyProgress') || '{}');
+    if (storedDaily.date === today) {
+      setDailyData({ claimedMissions: storedDaily.claimedMissions || [] });
+    }
+
     return () => clearTimeout(timer);
   }, []);
+
+  const spentPoints = parseInt(localStorage.getItem('spentPoints') || '0', 10);
+  const totalPoints = (completedMateri.length * 150) + missionPoints - spentPoints;
+
+  // Calculate Sila Milestones
+  const getSilaProgress = (silaId) => {
+    const sila = SILA_DATA[String(silaId)];
+    if (!sila?.materiList?.length) return 0;
+    const done = sila.materiList.filter(m => completedMateri.includes(m.id)).length;
+    return Math.round((done / sila.materiList.length) * 100);
+  };
+
+  const unlockedSilas = [1, 2, 3, 4, 5].filter(s => getSilaProgress(s) === 100);
 
   const cascadeStyle = (delaySec) => ({
     opacity: mounted ? 1 : 0,
@@ -55,21 +82,53 @@ export default function ProfileScreen({ userName, character, onNotificationClick
 
         {/* Pencapaian Terbaru Section */}
         <section className="space-y-4" style={cascadeStyle(0.2)}>
-          <h3 className="font-headline font-bold text-lg text-on-surface px-1">Pencapaian Terbaru</h3>
-          <div className="bg-white rounded-3xl p-6 flex items-center gap-6 shadow-[0_8px_24px_rgba(25,28,29,0.06)] border border-slate-100">
-            <div className="flex flex-col items-center justify-center bg-[#996d00] text-white p-4 rounded-2xl min-w-[90px] shadow-sm">
-              <span className="text-3xl font-black font-headline tracking-tighter">100</span>
-              <span className="text-[10px] font-bold uppercase tracking-widest opacity-90">Poin</span>
+          <h3 className="font-headline font-bold text-lg text-on-surface px-1">Pencapaian & Milestone</h3>
+          <div className="bg-white rounded-3xl p-6 shadow-[0_8px_24px_rgba(25,28,29,0.06)] border border-slate-100 flex flex-col gap-5">
+            
+            {/* Total Points Header */}
+            <div className="flex items-center gap-4 border-b border-slate-100 pb-5">
+              <div className="flex flex-col items-center justify-center bg-amber-600 text-white p-4 rounded-2xl min-w-[90px] shadow-sm">
+                <span className="text-3xl font-black font-headline tracking-tighter">{totalPoints}</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest opacity-90">Poin</span>
+              </div>
+              <div className="flex-1">
+                <p className="font-headline font-extrabold text-slate-800 leading-tight">Total Skor PancaGo</p>
+                <p className="text-xs font-body text-slate-500 mt-0.5">Dikumpulkan dari materi & misi harian.</p>
+              </div>
             </div>
-            <div className="flex flex-1 gap-3 overflow-x-auto no-scrollbar pb-1">
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#ffddb9] flex items-center justify-center border-2 border-[#a46700] shadow-sm">
-                <Star size={24} className="text-[#835100] fill-[#835100]" />
-              </div>
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#f7dbb8] flex items-center justify-center border-2 border-[#745f43] shadow-sm">
-                <Award size={24} className="text-[#745f43] fill-[#745f43]" />
-              </div>
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#eceeef] flex items-center justify-center border-2 border-[#d8c3af] opacity-40">
-                <Lock size={20} className="text-[#857463]" />
+
+            {/* Medals & Milestones Scroll */}
+            <div>
+              <p className="text-xs font-bold text-slate-400 font-body uppercase tracking-wider mb-3">Medali Perjalananmu</p>
+              <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+                
+                {/* Default Starter Medal */}
+                <div className="flex flex-col items-center gap-2 min-w-[70px]">
+                  <div className="flex-shrink-0 w-14 h-14 rounded-full bg-amber-100 flex items-center justify-center border-2 border-amber-600 shadow-sm relative">
+                    <Star size={26} className="text-amber-600 fill-amber-600" />
+                  </div>
+                  <span className="text-[10px] font-bold text-center text-amber-800 leading-tight">Pionir<br/>Panca</span>
+                </div>
+
+                {/* Sila Milestones */}
+                {[1, 2, 3, 4, 5].map(silaNum => {
+                  const isUnlocked = unlockedSilas.includes(silaNum);
+                  
+                  return (
+                    <div key={silaNum} className={`flex flex-col items-center gap-2 min-w-[70px] ${!isUnlocked && 'opacity-50 grayscale-[40%]'}`}>
+                      <div className={`flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center border-2 shadow-sm ${isUnlocked ? 'bg-amber-100 border-amber-600' : 'bg-slate-100 border-slate-300'}`}>
+                        {isUnlocked ? (
+                          <ShieldCheck size={26} className="text-amber-600" />
+                        ) : (
+                          <Lock size={20} className="text-slate-400" />
+                        )}
+                      </div>
+                      <span className={`text-[10px] font-bold text-center leading-tight ${isUnlocked ? 'text-amber-800' : 'text-slate-500'}`}>
+                        Tamat<br/>Sila {silaNum}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -78,17 +137,29 @@ export default function ProfileScreen({ userName, character, onNotificationClick
         {/* Misi Selesai Section */}
         <section className="space-y-4" style={cascadeStyle(0.3)}>
           <div className="flex justify-between items-center px-1">
-            <h3 className="font-headline font-bold text-lg text-on-surface flex-1">Misi Selesai</h3>
-            <span className="text-xs font-bold text-[#835100] bg-primary-fixed/30 px-3 py-1 rounded-full">1/5 Selesai</span>
+            <h3 className="font-headline font-bold text-lg text-on-surface flex-1">Misi Harian Selesai</h3>
+            <span className="text-xs font-bold text-amber-800 bg-amber-100 px-3 py-1 rounded-full border border-amber-200">
+              {dailyData.claimedMissions.length}/2 Selesai
+            </span>
           </div>
           <div className="bg-white rounded-3xl p-6 shadow-[0_8px_24px_rgba(25,28,29,0.06)] border border-slate-100">
-            <div className="h-4 w-full bg-[#f2f4f5] rounded-full overflow-hidden shadow-inner">
-              <div className="h-full rounded-full transition-all duration-1000 bg-gradient-to-r from-[#fdbb2f] to-[#ffb962]" style={{width: '20%'}}></div>
+            <div className="h-4 w-full bg-slate-100 rounded-full overflow-hidden shadow-inner">
+              <div 
+                className="h-full rounded-full transition-all duration-1000 bg-gradient-to-r from-amber-400 to-amber-500" 
+                style={{width: `${(dailyData.claimedMissions.length / 2) * 100}%`}}>
+              </div>
             </div>
-            <div className="mt-4 flex items-center gap-3 text-sm text-[#524435] font-semibold bg-[#f8f9fa] p-3 rounded-xl border border-slate-50">
-              <CheckCircle2 size={20} className="text-[#835100]" />
-              <span>Selesaikan Pengenalan Pancasila</span>
-            </div>
+            {dailyData.claimedMissions.length > 0 ? (
+              <div className="mt-4 flex items-center gap-3 text-sm text-slate-700 font-semibold bg-slate-50 py-3 px-4 rounded-xl border border-slate-100">
+                <CheckCircle2 size={20} className="text-green-500" />
+                <span>Kamu telah menyelesaikan {dailyData.claimedMissions.length} misi hari ini!</span>
+              </div>
+            ) : (
+              <div className="mt-4 flex items-center gap-3 text-sm text-slate-500 font-semibold bg-slate-50 py-3 px-4 rounded-xl border border-slate-100">
+                <CheckCircle2 size={20} className="text-slate-300" />
+                <span>Belum ada misi yang diselesaikan hari ini.</span>
+              </div>
+            )}
           </div>
         </section>
 

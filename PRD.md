@@ -30,11 +30,11 @@
 ### 4.1. Dashboard & Navigasi Utama (Jelajah)
 - Pengguna melihat sapaan dan peta nusantara interaktif.
 - Pengguna dapat memilih 5 titik Sila, masing-masing dijaga oleh karakter maskot:
-  - **Sila 1:** Bimo (Tema Amber)
-  - **Sila 2:** Siregar (Tema Merah/Emerald)
-  - **Sila 3:** Sinta (Tema Hijau/Biru)
-  - **Sila 4:** Passa 
-  - **Sila 5:** Aruya
+  - **Sila 1:** Bimo (Jawa - Laki-laki: Bijaksana, suka menolong)
+  - **Sila 2:** Siregar (Batak - Laki-laki: Tegas, jujur)
+  - **Sila 3:** Sinta / Leha (Dayak - Perempuan: Ramah, peduli)
+  - **Sila 4:** Passa (Bugis / Makassar - Laki-laki: Bijak, suka bermusyawarah)
+  - **Sila 5:** Aruya (Papua - Perempuan: Ceria, adil)
 - *Mapping* rute mengarahkan ke halaman `DetailSilaScreen`.
 
 ### 4.2. Materi List (Sila Details)
@@ -61,9 +61,14 @@ Fitur `BelajarScreen` adalah inti (jiwa) aplikasi. Konsepnya berlandaskan konsep
 **Data Management:**
 - Pendekatan arsitektur *Data-driven*. Semua slide cerita, quiz, state UI disimpan dalam JSON (`materiData.js` & `silaData.js`) sehingga hanya membutuhkan 1 halaman antarmuka (`BelajarScreen`) untuk memutar hingga puluhan materi. 
 
-**Backend & Authentication (Roadmap V2):**
-- *Supabase Auth* (Google Sign-In)
-- *Supabase Database* (Menyimpan histori poin `score`, progress materi `materi_completed`, data profil).
+**Backend & Authentication (Implemented):**
+- **Supabase Database:** Menyimpan histori poin `total_points`, progress materi `user_progress`, catalog karakter `outfits`, dan `missions`.
+- **Row Level Security (RLS):** Memastikan keamanan data antar pengguna.
+- **Triggers & Functions:** Automasi perhitungan poin dan logika pembelian skin.
+
+**Roadmap V2.0:**
+- *Supabase Auth* (Google Sign-In integration).
+- Real-time Notifications for Achievements.
 
 ---
 

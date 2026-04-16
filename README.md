@@ -52,11 +52,19 @@ src/
 │   └── HomeScreen/      # Beranda pengguna
 ├── App.jsx              # Otak routing & sistem navigasi state
 └── index.css            # Pengaya animasi dasar dan inisiasi Tailwind
+supabase/                # Skema Database & Migrasi SQL
 ```
 
-## roadmap
-- *Integrasi Backend Supabase* untuk penyimpanan riwayatXP dan progres akun.
-- Autentikasi mudah via *Google Sign-in*.
-- Tambahan animasi dan efek perayaan (*Confetti* / _Lottie_).
+## 🛠 Backend (Supabase)
+Aplikasi ini terintegrasi dengan Supabase untuk manajemen data yang persisten:
+- **Profiles & Progress**: Menyimpan poin XP, riwayat misi, dan progres belajar per sila.
+- **Karakter & Skin**: Sistem inventory untuk membeli dan menggunakan outfit karakter.
+- **Leaderboard**: Data kompetisi antar pengguna secara real-time.
 
-*(Proyek ini dibuat dan dikembangkan sebagai upaya menghadirkan pendampingan edukasi yang interaktif untuk Pendidikan Kewarganegaraan dan Karakter Pancasila).*
+## Roadmap v2.0
+- Autentikasi penuh via *Google Sign-in*.
+- Fitur AR (Augmented Reality) untuk kartu Pancasila.
+- Tambahan animasi Lottie untuk feedback interaksi.
+
+*(Proyek ini dikembangkan sebagai upaya menghadirkan pendampingan edukasi yang interaktif untuk Pendidikan Kewarganegaraan dan Karakter Pancasila).*
+

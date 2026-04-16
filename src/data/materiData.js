@@ -72,16 +72,17 @@ export const MATERI_DATA = {
     "id": "s2_m4",
     "sila": 2,
     "title": "Berbagi itu adil",
-    "character": "Bimo",
+    "character": "Siregar",
     "illustration": "https://lh3.googleusercontent.com/aida-public/AB6AXuDQqR-_2Z4H2s2_N742yG_p4u9Lz_hO6f-4I23uGgJ7fK_Pq5hR8u169xOKe5vXF-y1YjKz-zF8_4rNnx6jXy9P63uQ_v5fV3UqM4eP7_v0P6G_q7RzVXbB1LkVx-VzDk8hK_Z4F7y2M6iL6V9q6B6J-qY8uK6c_h5u6wTqz4fX_yVXv3A",
     "character_img": "https://lh3.googleusercontent.com/aida-public/AB6AXuDPYsZO41kBzSBrQ6BCrXim5RMx12dK-xXzexPFgBSdGUil52imX-46dtsvoOWl5XAR3l5loMGCRGZDvo-PVe4tseqw8P13DXojA-Getw_QeJm3lZqZUOFLVL9Kklk9ad5xg10HIJAchsx3nEfZhK8nw-PAGkJAnwkTHMj2X7OYCFU6nE33lXXuyRFSYaneQA0_1iEqOD931dg6JrmqGLfEDnVNQ0nmWh-Sz_IFT-ZZeNbomSq_2KKpep1vInLdMILQQl7ipAMIEQs",
     "slides": [
-      { "type": "story", "text": "Bimo punya 2 permen 🍬🍬" },
+      { "type": "story", "text": "Siregar punya 2 permen 🍬🍬" },
       { "type": "story", "text": "Temannya tidak punya permen." },
-      { "type": "action", "text": "Bimo membagi permennya kepada temannya." },
+      { "type": "action", "text": "Siregar membagi permennya kepada temannya." },
       { "type": "info", "text": "Berbagi adalah salah satu contoh sikap adil." },
       { "type": "value", "text": "Kalau kita punya lebih, kita bisa berbagi 😊" }
     ],
+
     "interaction": {
       "question": "Jika kamu punya lebih, apa yang kamu lakukan?",
       "options": [
@@ -99,7 +100,8 @@ export const MATERI_DATA = {
     "id": "s2_m5",
     "sila": 2,
     "title": "Suka menolong",
-    "character": "Bimo",
+    "character": "Siregar",
+
     "illustration": "https://lh3.googleusercontent.com/aida-public/AB6AXuDQqR-_2Z4H2s2_N742yG_p4u9Lz_hO6f-4I23uGgJ7fK_Pq5hR8u169xOKe5vXF-y1YjKz-zF8_4rNnx6jXy9P63uQ_v5fV3UqM4eP7_v0P6G_q7RzVXbB1LkVx-VzDk8hK_Z4F7y2M6iL6V9q6B6J-qY8uK6c_h5u6wTqz4fX_yVXv3A",
     "character_img": "https://lh3.googleusercontent.com/aida-public/AB6AXuDPYsZO41kBzSBrQ6BCrXim5RMx12dK-xXzexPFgBSdGUil52imX-46dtsvoOWl5XAR3l5loMGCRGZDvo-PVe4tseqw8P13DXojA-Getw_QeJm3lZqZUOFLVL9Kklk9ad5xg10HIJAchsx3nEfZhK8nw-PAGkJAnwkTHMj2X7OYCFU6nE33lXXuyRFSYaneQA0_1iEqOD931dg6JrmqGLfEDnVNQ0nmWh-Sz_IFT-ZZeNbomSq_2KKpep1vInLdMILQQl7ipAMIEQs",
     "slides": [
@@ -126,7 +128,8 @@ export const MATERI_DATA = {
     "id": "s2_m6",
     "sila": 2,
     "title": "Belajar empati",
-    "character": "Bimo",
+    "character": "Siregar",
+
     "illustration": "https://lh3.googleusercontent.com/aida-public/AB6AXuDQqR-_2Z4H2s2_N742yG_p4u9Lz_hO6f-4I23uGgJ7fK_Pq5hR8u169xOKe5vXF-y1YjKz-zF8_4rNnx6jXy9P63uQ_v5fV3UqM4eP7_v0P6G_q7RzVXbB1LkVx-VzDk8hK_Z4F7y2M6iL6V9q6B6J-qY8uK6c_h5u6wTqz4fX_yVXv3A",
     "character_img": "https://lh3.googleusercontent.com/aida-public/AB6AXuDPYsZO41kBzSBrQ6BCrXim5RMx12dK-xXzexPFgBSdGUil52imX-46dtsvoOWl5XAR3l5loMGCRGZDvo-PVe4tseqw8P13DXojA-Getw_QeJm3lZqZUOFLVL9Kklk9ad5xg10HIJAchsx3nEfZhK8nw-PAGkJAnwkTHMj2X7OYCFU6nE33lXXuyRFSYaneQA0_1iEqOD931dg6JrmqGLfEDnVNQ0nmWh-Sz_IFT-ZZeNbomSq_2KKpep1vInLdMILQQl7ipAMIEQs",
     "slides": [
@@ -180,7 +183,8 @@ export const MATERI_DATA = {
     "id": "s3_m7",
     "sila": 3,
     "title": "Bermain bersama",
-    "character": "Bimo",
+    "character": "Sinta / Leha",
+
     "illustration": "https://lh3.googleusercontent.com/aida-public/AB6AXuDQqR-_2Z4H2s2_N742yG_p4u9Lz_hO6f-4I23uGgJ7fK_Pq5hR8u169xOKe5vXF-y1YjKz-zF8_4rNnx6jXy9P63uQ_v5fV3UqM4eP7_v0P6G_q7RzVXbB1LkVx-VzDk8hK_Z4F7y2M6iL6V9q6B6J-qY8uK6c_h5u6wTqz4fX_yVXv3A",
     "character_img": "https://lh3.googleusercontent.com/aida-public/AB6AXuDPYsZO41kBzSBrQ6BCrXim5RMx12dK-xXzexPFgBSdGUil52imX-46dtsvoOWl5XAR3l5loMGCRGZDvo-PVe4tseqw8P13DXojA-Getw_QeJm3lZqZUOFLVL9Kklk9ad5xg10HIJAchsx3nEfZhK8nw-PAGkJAnwkTHMj2X7OYCFU6nE33lXXuyRFSYaneQA0_1iEqOD931dg6JrmqGLfEDnVNQ0nmWh-Sz_IFT-ZZeNbomSq_2KKpep1vInLdMILQQl7ipAMIEQs",
     "slides": [
@@ -207,7 +211,8 @@ export const MATERI_DATA = {
     "id": "s3_m8",
     "sila": 3,
     "title": "Kerjasama dan gotong royong",
-    "character": "Bimo",
+    "character": "Sinta / Leha",
+
     "illustration": "https://lh3.googleusercontent.com/aida-public/AB6AXuDQqR-_2Z4H2s2_N742yG_p4u9Lz_hO6f-4I23uGgJ7fK_Pq5hR8u169xOKe5vXF-y1YjKz-zF8_4rNnx6jXy9P63uQ_v5fV3UqM4eP7_v0P6G_q7RzVXbB1LkVx-VzDk8hK_Z4F7y2M6iL6V9q6B6J-qY8uK6c_h5u6wTqz4fX_yVXv3A",
     "character_img": "https://lh3.googleusercontent.com/aida-public/AB6AXuDPYsZO41kBzSBrQ6BCrXim5RMx12dK-xXzexPFgBSdGUil52imX-46dtsvoOWl5XAR3l5loMGCRGZDvo-PVe4tseqw8P13DXojA-Getw_QeJm3lZqZUOFLVL9Kklk9ad5xg10HIJAchsx3nEfZhK8nw-PAGkJAnwkTHMj2X7OYCFU6nE33lXXuyRFSYaneQA0_1iEqOD931dg6JrmqGLfEDnVNQ0nmWh-Sz_IFT-ZZeNbomSq_2KKpep1vInLdMILQQl7ipAMIEQs",
     "slides": [
@@ -234,7 +239,8 @@ export const MATERI_DATA = {
     "id": "s3_m9",
     "sila": 3,
     "title": "Cinta Indonesia",
-    "character": "Bimo",
+    "character": "Sinta / Leha",
+
     "illustration": "https://lh3.googleusercontent.com/aida-public/AB6AXuDQqR-_2Z4H2s2_N742yG_p4u9Lz_hO6f-4I23uGgJ7fK_Pq5hR8u169xOKe5vXF-y1YjKz-zF8_4rNnx6jXy9P63uQ_v5fV3UqM4eP7_v0P6G_q7RzVXbB1LkVx-VzDk8hK_Z4F7y2M6iL6V9q6B6J-qY8uK6c_h5u6wTqz4fX_yVXv3A",
     "character_img": "https://lh3.googleusercontent.com/aida-public/AB6AXuDPYsZO41kBzSBrQ6BCrXim5RMx12dK-xXzexPFgBSdGUil52imX-46dtsvoOWl5XAR3l5loMGCRGZDvo-PVe4tseqw8P13DXojA-Getw_QeJm3lZqZUOFLVL9Kklk9ad5xg10HIJAchsx3nEfZhK8nw-PAGkJAnwkTHMj2X7OYCFU6nE33lXXuyRFSYaneQA0_1iEqOD931dg6JrmqGLfEDnVNQ0nmWh-Sz_IFT-ZZeNbomSq_2KKpep1vInLdMILQQl7ipAMIEQs",
     "slides": [
@@ -261,7 +267,8 @@ export const MATERI_DATA = {
     "id": "s4_m10",
     "sila": 4,
     "title": "Musyawarah bersama",
-    "character": "Bimo",
+    "character": "Passa",
+
     "illustration": "https://lh3.googleusercontent.com/aida-public/AB6AXuDQqR-_2Z4H2s2_N742yG_p4u9Lz_hO6f-4I23uGgJ7fK_Pq5hR8u169xOKe5vXF-y1YjKz-zF8_4rNnx6jXy9P63uQ_v5fV3UqM4eP7_v0P6G_q7RzVXbB1LkVx-VzDk8hK_Z4F7y2M6iL6V9q6B6J-qY8uK6c_h5u6wTqz4fX_yVXv3A",
     "character_img": "https://lh3.googleusercontent.com/aida-public/AB6AXuDPYsZO41kBzSBrQ6BCrXim5RMx12dK-xXzexPFgBSdGUil52imX-46dtsvoOWl5XAR3l5loMGCRGZDvo-PVe4tseqw8P13DXojA-Getw_QeJm3lZqZUOFLVL9Kklk9ad5xg10HIJAchsx3nEfZhK8nw-PAGkJAnwkTHMj2X7OYCFU6nE33lXXuyRFSYaneQA0_1iEqOD931dg6JrmqGLfEDnVNQ0nmWh-Sz_IFT-ZZeNbomSq_2KKpep1vInLdMILQQl7ipAMIEQs",
     "slides": [
@@ -288,7 +295,8 @@ export const MATERI_DATA = {
     "id": "s4_m11",
     "sila": 4,
     "title": "Menghargai pendapat teman",
-    "character": "Bimo",
+    "character": "Passa",
+
     "illustration": "https://lh3.googleusercontent.com/aida-public/AB6AXuDQqR-_2Z4H2s2_N742yG_p4u9Lz_hO6f-4I23uGgJ7fK_Pq5hR8u169xOKe5vXF-y1YjKz-zF8_4rNnx6jXy9P63uQ_v5fV3UqM4eP7_v0P6G_q7RzVXbB1LkVx-VzDk8hK_Z4F7y2M6iL6V9q6B6J-qY8uK6c_h5u6wTqz4fX_yVXv3A",
     "character_img": "https://lh3.googleusercontent.com/aida-public/AB6AXuDPYsZO41kBzSBrQ6BCrXim5RMx12dK-xXzexPFgBSdGUil52imX-46dtsvoOWl5XAR3l5loMGCRGZDvo-PVe4tseqw8P13DXojA-Getw_QeJm3lZqZUOFLVL9Kklk9ad5xg10HIJAchsx3nEfZhK8nw-PAGkJAnwkTHMj2X7OYCFU6nE33lXXuyRFSYaneQA0_1iEqOD931dg6JrmqGLfEDnVNQ0nmWh-Sz_IFT-ZZeNbomSq_2KKpep1vInLdMILQQl7ipAMIEQs",
     "slides": [
@@ -315,7 +323,8 @@ export const MATERI_DATA = {
     "id": "s4_m12",
     "sila": 4,
     "title": "Memilih dengan voting",
-    "character": "Bimo",
+    "character": "Passa",
+
     "illustration": "https://lh3.googleusercontent.com/aida-public/AB6AXuDQqR-_2Z4H2s2_N742yG_p4u9Lz_hO6f-4I23uGgJ7fK_Pq5hR8u169xOKe5vXF-y1YjKz-zF8_4rNnx6jXy9P63uQ_v5fV3UqM4eP7_v0P6G_q7RzVXbB1LkVx-VzDk8hK_Z4F7y2M6iL6V9q6B6J-qY8uK6c_h5u6wTqz4fX_yVXv3A",
     "character_img": "https://lh3.googleusercontent.com/aida-public/AB6AXuDPYsZO41kBzSBrQ6BCrXim5RMx12dK-xXzexPFgBSdGUil52imX-46dtsvoOWl5XAR3l5loMGCRGZDvo-PVe4tseqw8P13DXojA-Getw_QeJm3lZqZUOFLVL9Kklk9ad5xg10HIJAchsx3nEfZhK8nw-PAGkJAnwkTHMj2X7OYCFU6nE33lXXuyRFSYaneQA0_1iEqOD931dg6JrmqGLfEDnVNQ0nmWh-Sz_IFT-ZZeNbomSq_2KKpep1vInLdMILQQl7ipAMIEQs",
     "slides": [
@@ -342,7 +351,8 @@ export const MATERI_DATA = {
     "id": "s5_m13",
     "sila": 5,
     "title": "Berbagi dengan adil",
-    "character": "Bimo",
+    "character": "Aruya",
+
     "illustration": "https://lh3.googleusercontent.com/aida-public/AB6AXuDQqR-_2Z4H2s2_N742yG_p4u9Lz_hO6f-4I23uGgJ7fK_Pq5hR8u169xOKe5vXF-y1YjKz-zF8_4rNnx6jXy9P63uQ_v5fV3UqM4eP7_v0P6G_q7RzVXbB1LkVx-VzDk8hK_Z4F7y2M6iL6V9q6B6J-qY8uK6c_h5u6wTqz4fX_yVXv3A",
     "character_img": "https://lh3.googleusercontent.com/aida-public/AB6AXuDPYsZO41kBzSBrQ6BCrXim5RMx12dK-xXzexPFgBSdGUil52imX-46dtsvoOWl5XAR3l5loMGCRGZDvo-PVe4tseqw8P13DXojA-Getw_QeJm3lZqZUOFLVL9Kklk9ad5xg10HIJAchsx3nEfZhK8nw-PAGkJAnwkTHMj2X7OYCFU6nE33lXXuyRFSYaneQA0_1iEqOD931dg6JrmqGLfEDnVNQ0nmWh-Sz_IFT-ZZeNbomSq_2KKpep1vInLdMILQQl7ipAMIEQs",
     "slides": [
@@ -369,7 +379,8 @@ export const MATERI_DATA = {
     "id": "s5_m14",
     "sila": 5,
     "title": "Hak dan kewajiban",
-    "character": "Bimo",
+    "character": "Aruya",
+
     "illustration": "https://lh3.googleusercontent.com/aida-public/AB6AXuDQqR-_2Z4H2s2_N742yG_p4u9Lz_hO6f-4I23uGgJ7fK_Pq5hR8u169xOKe5vXF-y1YjKz-zF8_4rNnx6jXy9P63uQ_v5fV3UqM4eP7_v0P6G_q7RzVXbB1LkVx-VzDk8hK_Z4F7y2M6iL6V9q6B6J-qY8uK6c_h5u6wTqz4fX_yVXv3A",
     "character_img": "https://lh3.googleusercontent.com/aida-public/AB6AXuDPYsZO41kBzSBrQ6BCrXim5RMx12dK-xXzexPFgBSdGUil52imX-46dtsvoOWl5XAR3l5loMGCRGZDvo-PVe4tseqw8P13DXojA-Getw_QeJm3lZqZUOFLVL9Kklk9ad5xg10HIJAchsx3nEfZhK8nw-PAGkJAnwkTHMj2X7OYCFU6nE33lXXuyRFSYaneQA0_1iEqOD931dg6JrmqGLfEDnVNQ0nmWh-Sz_IFT-ZZeNbomSq_2KKpep1vInLdMILQQl7ipAMIEQs",
     "slides": [
@@ -396,7 +407,8 @@ export const MATERI_DATA = {
     "id": "s5_m15",
     "sila": 5,
     "title": "Disiplin itu penting",
-    "character": "Bimo",
+    "character": "Aruya",
+
     "illustration": "https://lh3.googleusercontent.com/aida-public/AB6AXuDQqR-_2Z4H2s2_N742yG_p4u9Lz_hO6f-4I23uGgJ7fK_Pq5hR8u169xOKe5vXF-y1YjKz-zF8_4rNnx6jXy9P63uQ_v5fV3UqM4eP7_v0P6G_q7RzVXbB1LkVx-VzDk8hK_Z4F7y2M6iL6V9q6B6J-qY8uK6c_h5u6wTqz4fX_yVXv3A",
     "character_img": "https://lh3.googleusercontent.com/aida-public/AB6AXuDPYsZO41kBzSBrQ6BCrXim5RMx12dK-xXzexPFgBSdGUil52imX-46dtsvoOWl5XAR3l5loMGCRGZDvo-PVe4tseqw8P13DXojA-Getw_QeJm3lZqZUOFLVL9Kklk9ad5xg10HIJAchsx3nEfZhK8nw-PAGkJAnwkTHMj2X7OYCFU6nE33lXXuyRFSYaneQA0_1iEqOD931dg6JrmqGLfEDnVNQ0nmWh-Sz_IFT-ZZeNbomSq_2KKpep1vInLdMILQQl7ipAMIEQs",
     "slides": [
