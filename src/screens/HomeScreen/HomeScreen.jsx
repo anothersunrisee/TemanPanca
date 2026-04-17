@@ -3,6 +3,8 @@ import { Star, ArrowRight, Target } from 'lucide-react';
 import MainLayout from '../../layouts/MainLayout';
 import { BOY_IMG, GIRL_IMG } from '../../components/TopAppBar';
 import { SILA_DATA } from '../../data/silaData';
+import { OUTFITS } from '../../data/outfitData';
+
 
 const SCENERY_IMG = "https://lh3.googleusercontent.com/aida-public/AB6AXuDMmBeq1IBaM3cwnuglwQ4ryF6yGMEtEaiqaeuTYpPw-DsUyquCM3oXZw0SCgt9RloXkQ3qzcHTcSBxMPh-HpdWh7mKuD2qBUQkenGF4hgxZKZFAR9OX9z4qhx7yzSkuXd4e2Wm10X31-_EBnyysilm9yvrCOlnkNxZTWQjWhXHjZ1bXfl33QL4iwT5M98_7QrJXCztYmG9JGtcPAGz8njKGIlERI-5eWIczQerel29y_eiRBFisJA_d-qKkZdFM-1SpKs6KoDmEUI";
 
@@ -64,8 +66,10 @@ const AnimatedDonut = ({ percentage, sizeClass, innerClasses, formatLabel, dimme
 };
 
 // ─── Main Component ───────────────────────────────────────────────────────────
-export default function HomeScreen({ userName, character, onNotificationClick, onTabChange, onSilaSelect }) {
-  const avatarUrl = character === 'Perempuan' ? GIRL_IMG : BOY_IMG;
+export default function HomeScreen({ userName, character, selectedOutfit, onNotificationClick, onTabChange, onSilaSelect }) {
+  const outfitData = OUTFITS.find(o => o.id === selectedOutfit);
+  const avatarUrl = outfitData ? outfitData.src : (character === 'Perempuan' ? GIRL_IMG : BOY_IMG);
+
   const firstName = userName ? userName.split(' ')[0] : 'Kawan';
 
   const [mounted, setMounted] = useState(false);

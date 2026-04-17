@@ -72,10 +72,15 @@ export default {
           '0%': { transform: 'scale(0.5)', opacity: '0' },
           '60%': { transform: 'scale(1.1)', opacity: '1' },
           '100%': { transform: 'scale(1)', opacity: '1' }
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' }
         }
       },
       animation: {
-        popup: 'popup 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards'
+        popup: 'popup 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
+        float: 'float 3s ease-in-out infinite'
       }
     },
   },

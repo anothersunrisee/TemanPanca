@@ -14,6 +14,8 @@ import BelajarScreen from './screens/BelajarScreen/BelajarScreen';
 import ARScreen from './screens/ARScreen/ARScreen';
 import ProfileScreen from './screens/ProfileScreen/ProfileScreen';
 import KarakterScreen from './screens/KarakterScreen/KarakterScreen';
+import { OUTFITS } from './data/outfitData';
+
 
 function App() {
   const [hash, setHash] = useState(window.location.hash);
@@ -24,9 +26,9 @@ function App() {
     return () => window.removeEventListener('hashchange', handleHash);
   }, []);
 
-  const [showSplash, setShowSplash] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [tourFinished, setTourFinished] = useState(true);
+  const [showSplash, setShowSplash] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [tourFinished, setTourFinished] = useState(false);
   const [userName, setUserName] = useState('Developer');
   const [character, setCharacter] = useState('Laki-laki');
   const [showNotifications, setShowNotifications] = useState(false);
@@ -34,6 +36,10 @@ function App() {
   const [activeTab, setActiveTab] = useState('home'); // Global navigation state
   const [activeSila, setActiveSila] = useState(null); // Tracks selected Sila
   const [activeMateri, setActiveMateri] = useState(null); // Tracks selected learning session
+  const [selectedOutfit, setSelectedOutfit] = useState(() => {
+    return localStorage.getItem('selectedOutfit') || 'jawa';
+  });
+
 
   useEffect(() => {
     // DEVELOPMENT BYPASS: Skipping real Supabase auth
@@ -57,12 +63,8 @@ function App() {
   }, []);
 
   const handleGoogleLogin = async () => {
-    await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        redirectTo: window.location.origin,
-      }
-    });
+    // BYPASS LOGIN: Direct to app
+    setIsLoggedIn(true);
   };
 
   // Developer Bypass
@@ -124,8 +126,9 @@ function App() {
   }
 
   if (showKarakter) {
-    return <KarakterScreen onBack={() => setShowKarakter(false)} character={character} onCharacterSave={(gender) => setCharacter(gender)} />;
+    return <KarakterScreen onBack={() => setShowKarakter(false)} character={character} onCharacterSave={(gender) => setCharacter(gender)} onOutfitSave={setSelectedOutfit} />;
   }
+
 
   // Interactive Learning Pipeline
   if (activeMateri) {
@@ -151,11 +154,12 @@ function App() {
   }
 
   if (activeTab === 'profil') {
-    return <ProfileScreen userName={userName} character={character} onNotificationClick={() => setShowNotifications(true)} onTabChange={setActiveTab} onCharacterEdit={() => setShowKarakter(true)} />;
+    return <ProfileScreen userName={userName} character={character} selectedOutfit={selectedOutfit} onNotificationClick={() => setShowNotifications(true)} onTabChange={setActiveTab} onCharacterEdit={() => setShowKarakter(true)} />;
   }
 
   // Dashboard / Native Home
-  return <HomeScreen userName={userName} character={character} onNotificationClick={() => setShowNotifications(true)} onTabChange={setActiveTab} onSilaSelect={setActiveSila} />;
+  return <HomeScreen userName={userName} character={character} selectedOutfit={selectedOutfit} onNotificationClick={() => setShowNotifications(true)} onTabChange={setActiveTab} onSilaSelect={setActiveSila} />;
+
 }
 
 export default App;

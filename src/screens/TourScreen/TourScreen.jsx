@@ -96,7 +96,7 @@ export default function TourScreen({ onFinishTour }) {
 
           <button 
             onClick={handleNext}
-            className="w-full max-w-[340px] mx-auto py-4 px-6 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-full font-headline font-bold text-lg shadow-lg shadow-primary/20 hover:scale-[0.98] active:scale-95 transition-transform duration-150 flex items-center justify-center gap-3"
+            className="w-full max-w-[340px] mx-auto py-4 px-6 bg-gradient-to-br from-amber-500 to-amber-700 text-white rounded-full font-headline font-bold text-lg shadow-lg shadow-amber-500/20 hover:scale-[0.98] active:scale-95 transition-transform duration-150 flex items-center justify-center gap-3"
           >
             <span>{isLast ? "Mulai Petualangan" : "Selanjutnya"}</span>
             <Icons.ArrowRight size={24} />

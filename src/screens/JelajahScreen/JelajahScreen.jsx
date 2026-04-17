@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Star, ArrowRight } from 'lucide-react';
+import { Star, ArrowRight, Check } from 'lucide-react';
+
 import MainLayout from '../../layouts/MainLayout';
 import { SILA_DATA } from '../../data/silaData';
 
@@ -39,6 +40,48 @@ function isSilaUnlocked(idx, completedMateri) {
   return isSilaComplete(idx, completedMateri); // silaId of previous = idx (1-indexed, so idx = prev id)
 }
 
+function getActiveSila(completedMateri) {
+  for (let i = 1; i <= 5; i++) {
+    if (getSilaProgress(i, completedMateri) < 100) return i;
+  }
+  return 5;
+}
+
+const MapPin = ({ id, img, posClass, unlocked, complete, isActive, onSelect }) => (
+  <div 
+    onClick={() => unlocked && onSelect && onSelect(id)} 
+    className={`absolute ${posClass} transform -translate-x-1/2 transition-all duration-300 z-10 
+      ${unlocked ? 'cursor-pointer hover:scale-110 active:scale-95' : 'cursor-not-allowed'}
+      ${isActive ? 'animate-float' : ''}`}
+  >
+    <div className={`relative w-12 h-12 md:w-14 md:h-14 rounded-full border-[3px] shadow-lg overflow-hidden transition-all
+      ${unlocked ? 'border-white scale-100' : 'border-slate-200 scale-90 grayscale opacity-80'}`}>
+      <img className="w-full h-full object-cover" alt={`Sila ${id}`} src={img} />
+      
+      {!unlocked && (
+        <div className="absolute inset-0 bg-slate-900/10 flex items-center justify-center">
+          <div className="bg-slate-800/80 p-1 rounded-full">
+            <Star size={12} className="text-white opacity-40" />
+          </div>
+        </div>
+      )}
+    </div>
+
+    {/* Status Indicators */}
+    {complete && (
+      <div className="absolute -top-1 -right-1 bg-green-500 border-2 border-white text-white p-0.5 rounded-full shadow-sm">
+        <Check size={12} strokeWidth={4} />
+      </div>
+    )}
+    
+    {isActive && (
+      <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-amber-500 text-white text-[10px] font-black px-3 py-0.5 rounded-full shadow-md whitespace-nowrap animate-pulse">
+        Mulai!
+      </div>
+    )}
+  </div>
+);
+
 export default function JelajahScreen({ userName, character, onNotificationClick, onTabChange, onSilaSelect }) {
   const [mounted, setMounted] = useState(false);
   const [completedMateri] = useState(() =>
@@ -65,33 +108,42 @@ export default function JelajahScreen({ userName, character, onNotificationClick
           <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden shadow-xl shadow-slate-200/50">
             <img className="w-full h-full object-cover" alt="Map Jelajah" src={MAP_IMG} />
 
-            {/* Map pins */}
-            <div onClick={() => onSilaSelect && onSilaSelect(1)} className="absolute top-[20%] left-[22%] transform -translate-x-1/2 hover:scale-110 transition-transform cursor-pointer group z-10">
-              <div className="w-10 h-10 rounded-full border-[3px] border-white shadow-lg overflow-hidden">
-                <img className="w-full h-full object-cover" alt="Bimo" src={BIMO} />
-              </div>
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-white text-primary text-[10px] font-bold px-2 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-sm">Sila 1</div>
-            </div>
-            <div onClick={() => onSilaSelect && onSilaSelect(2)} className="absolute top-[45%] left-[35%] hover:scale-110 transition-transform cursor-pointer group z-10">
-              <div className="w-10 h-10 rounded-full border-[3px] border-white shadow-lg overflow-hidden">
-                <img className="w-full h-full object-cover" alt="Siregar" src={SIREGAR} />
-              </div>
-            </div>
-            <div onClick={() => onSilaSelect && onSilaSelect(3)} className="absolute bottom-[20%] left-[45%] hover:scale-110 transition-transform cursor-pointer group z-10">
-              <div className="w-10 h-10 rounded-full border-[3px] border-white shadow-lg overflow-hidden">
-                <img className="w-full h-full object-cover" alt="Sinta" src={SINTA} />
-              </div>
-            </div>
-            <div onClick={() => onSilaSelect && onSilaSelect(4)} className="absolute top-[30%] right-[30%] hover:scale-110 transition-transform cursor-pointer group z-10">
-              <div className="w-10 h-10 rounded-full border-[3px] border-white shadow-lg overflow-hidden">
-                <img className="w-full h-full object-cover" alt="Passa" src={PASSA} />
-              </div>
-            </div>
-            <div onClick={() => onSilaSelect && onSilaSelect(5)} className="absolute bottom-[35%] right-[25%] hover:scale-110 transition-transform cursor-pointer group z-10">
-              <div className="w-10 h-10 rounded-full border-[3px] border-white shadow-lg overflow-hidden">
-                <img className="w-full h-full object-cover" alt="Aruya" src={ARUYA} />
-              </div>
-            </div>
+            {/* Map pins using our new generic component */}
+            <MapPin 
+              id={1} img={BIMO} posClass="top-[20%] left-[22%]" 
+              unlocked={isSilaUnlocked(0, completedMateri)} 
+              complete={isSilaComplete(1, completedMateri)}
+              isActive={getActiveSila(completedMateri) === 1}
+              onSelect={onSilaSelect}
+            />
+            <MapPin 
+              id={2} img={SIREGAR} posClass="top-[45%] left-[35%]" 
+              unlocked={isSilaUnlocked(1, completedMateri)} 
+              complete={isSilaComplete(2, completedMateri)}
+              isActive={getActiveSila(completedMateri) === 2}
+              onSelect={onSilaSelect}
+            />
+            <MapPin 
+              id={3} img={SINTA} posClass="bottom-[20%] left-[45%]" 
+              unlocked={isSilaUnlocked(2, completedMateri)} 
+              complete={isSilaComplete(3, completedMateri)}
+              isActive={getActiveSila(completedMateri) === 3}
+              onSelect={onSilaSelect}
+            />
+            <MapPin 
+              id={4} img={PASSA} posClass="top-[30%] right-[25%]" 
+              unlocked={isSilaUnlocked(3, completedMateri)} 
+              complete={isSilaComplete(4, completedMateri)}
+              isActive={getActiveSila(completedMateri) === 4}
+              onSelect={onSilaSelect}
+            />
+            <MapPin 
+              id={5} img={ARUYA} posClass="bottom-[35%] right-[20%]" 
+              unlocked={isSilaUnlocked(4, completedMateri)} 
+              complete={isSilaComplete(5, completedMateri)}
+              isActive={getActiveSila(completedMateri) === 5}
+              onSelect={onSilaSelect}
+            />
           </div>
 
           <div className="mt-8 text-center">

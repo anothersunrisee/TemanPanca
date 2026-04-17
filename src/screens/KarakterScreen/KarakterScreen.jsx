@@ -1,78 +1,9 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Check, Lock, ShieldCheck, X } from 'lucide-react';
 
-const OUTFITS = [
-  {
-    id: 'default',
-    label: 'Default',
-    price: 0,
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB108fhDPKMlX6NaK45QU5lPm2jIBSUDw2Tra2Szz_9aMhXkLiUqzehtOYSkbKS_9_eIQQl7L3IKH46NoGLI5kXRCEK847DivkJUKV3UxMYwspwxN519G_1SzLZyJila3ROxMus1ajUye2Iu9sZdXPIfzXRh_OjiGA0Ctvh91d4YU0P5maHC5GOWDvXpT4fTt-Et_EaAU8RTThyAuCbHjfEhW1Q-k5WpcNC_iYIGvbgp6DwkP4emrGuLtSPRBUAR09RbXSMU1pe_Js',
-    alt: 'Simple t-shirt and jeans casual outfit',
-    description: 'Pakaian kasual sehari-hari yang nyaman dipakai belajar dan bermain.',
-  },
-  {
-    id: 'jawa',
-    label: 'Jawa',
-    price: 0,
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCdZsFogf_0lq2gFhOLT1Pg5TR9h4o91xKQtqItgpOLS8nFCyV9EzIMEaB7shwcCeA48XRAWhLTG9UmW9d1RHzufauqsPxxClapTDseMwD-D6G-wb_OT5ImbZJAUeqiKwhNDq8I568vGpo8wYOQyJyvHwB9MwU9IwO3ywg6HaMa1fgB03tIWCagxiNq7-NQeU07K3C63tCjtc6nWnwzlYmMJGp8PMdeDeWYs5XYwnJuK4ApYYZA9OurWES9Hzg9mNRasjCZHZlhdB4',
-    alt: 'Javanese traditional batik and blangkon hat',
-    description: 'Baju adat Jawa yang elegan dengan sentuhan kain Batik asli yang mendunia.',
-  },
-  {
-    id: 'batak',
-    label: 'Batak',
-    price: 300,
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBe5xGT6N9rkRSupO1U9KE-XEauDo_J0bLNurGV61XT3Hlhc_7pj6mSAVS47U6q_DaE-opeUC6cTCIFUQlyDwPtV6784OAa-B3XyxSNTJHO1K9GX6ic9GzUswQvXHHXlHX-0wA2ZYnPTKxTDsQqnlU4AxZSOSAVFqYcKxD0EAoRWWh5UmLnq3gsaHLiN6z8PzwpkRBaiKaKIBO7z4UMpzAGmMG9rGCDPqhtYjD15G02OESem7-E2jAg5Kx6AN3UWVdA8qCTfg2xsRM',
-    alt: 'Batak traditional Ulos fabric costume',
-    description: 'Pakaian berbalut kain Ulos khas Sumatera Utara. Simbol ikatan dan perlindungan yang kuat!',
-  },
-  {
-    id: 'dayak',
-    label: 'Dayak',
-    price: 450,
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCTlcd3cqx0yBlKErwvz8tZ98lAC5Ay8IWAjgTWnlg6Ucnj-ym_0hGLaqcgiRHtZDzyL_1vdOQLCG7n1mr-dZcDLrxCT7ERWExgRJPjmuYOCreyvE3pxa8t26Ku9qYCtEoxheu1NsAuaHf_ar8-O9Ay8Lg77p72mtgWf7IzIGtYWtIr54gWNM7tWN5IBLlYF_3v2dsFwZ_M0eBZphLThKN0rln9W4fEH0gxvG9kL-GXg1lI75PNKSveS3ZIalsjpZumFwvA6_t2aZc',
-    alt: 'Dayak traditional costume with feathers and beadwork',
-    description: 'Baju adat dari Kalimantan yang dilengkapi ornamen bulu burung enggang yang legendaris.',
-  },
-  {
-    id: 'bugis',
-    label: 'Bugis',
-    price: 300,
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDLTyeYNrZUUVFZiZM0ReFztc_cKBFWpy55gw2eY6sszWHm8Rkz7muvItlxCi_z8DvFx2aaKN7Lgqye6OCl_j3b0yNM66kVw5Uz5Aw9tt6qaTW9uXVwx7Y7LeMhot5azutjzjjDBsiIJp0gnu-JOjdWOrok1jrcjNb5tgxYUUm4NEN9o0NMNcv6msbImQQRwE45Dfsl9Bl4BS7UVfy6hWWcNpNtocGqflf-v9yJMdNcMiczzbgHnTwUIUrUuZs6FsysJSeXIIrrcVk',
-    alt: 'Bugis traditional Baju Bodo',
-    description: 'Pakaian tradisional tertua dari Sulawesi Selatan yang memancarkan pesona kebudayaan maritim Bugis.',
-  },
-  {
-    id: 'papua',
-    label: 'Papua',
-    price: 600,
-    src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAsThHe39Ev_bSq1n_qBPF1lvuTXIX6ji5TfGuU_vJjAYajt9Plr29YQcmWVeXp8-NVLasPamZwgZ66ZbP1-d5bPyoxGAlrJ2n5rt-ECWYHJWX-jsverjkev4hCs_7uP2B-tVH_TrUsMlZHWMKXBSp0shrRjt4HAT0C19RqGIV4DNh0IZfgjD151Lrr-JJjS4wFs7z6RUcPvNALg_s125owne2JDN4vXyqiewEQ6MVTqt73X8glfD0paNZi4vBw7CswEcKHExyqFSM',
-    alt: 'Papuan traditional grass skirt and shell accessories',
-    description: 'Pakaian asli bumi Cendrawasih dengan dekorasi alami. Tampil sangat berani dan mencintai alam!',
-  },
-  {
-    id: 'bali',
-    label: 'Bali',
-    price: 800,
-    comingSoon: true,
-    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/1x1.png/120px-1x1.png',
-    alt: 'Coming Soon Placeholder',
-    description: 'Segera hadir membawa eksotisme pulau Dewata ke ujung jarimu.',
-  },
-  {
-    id: 'minang',
-    label: 'Minang',
-    price: 900,
-    comingSoon: true,
-    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/1x1.png/120px-1x1.png',
-    alt: 'Coming Soon Placeholder',
-    description: 'Segera hadir dengan kemegahan budaya Minangkabau yang memukau.',
-  },
-];
+import { OUTFITS } from '../../data/outfitData';
 
-const AVATAR_SRC = 'https://lh3.googleusercontent.com/aida-public/AB6AXuBQm_ulq0nj_E54Wh2VlaNks3lcZIAOx8_aZ5foVTD2-RjQDuDbU6FL5eUv8rxKsLC5JyWCRuDGDg9iYP-vKFyDv44PlFdCuP-YJZ9pRucZSenBHsccaeaStLzvkr_CYSsLaf3o1WG61mCrmC9SomX2NQt35g07rrD5Qw5_VyGMUAC2L79zY_950LNlVImOwOvDJVgos1nJmckmnFw3PcZCEm0yGRhzuGD4-yk5c4S5eq27aQshZWktBQZLW6Ktr9gHVzJ6ogffut8';
-
-export default function KarakterScreen({ onBack, character: initialCharacter, onCharacterSave }) {
+export default function KarakterScreen({ onBack, character: initialCharacter, onCharacterSave, onOutfitSave }) {
   const [selectedGender, setSelectedGender] = useState(
     initialCharacter === 'Perempuan' ? 'Perempuan' : 'Laki-laki'
   );
@@ -133,6 +64,9 @@ export default function KarakterScreen({ onBack, character: initialCharacter, on
     if (onCharacterSave) {
       onCharacterSave(selectedGender);
     }
+    if (onOutfitSave) {
+      onOutfitSave(selectedOutfit);
+    }
     localStorage.setItem('selectedOutfit', selectedOutfit);
     if (onBack) onBack();
   };
@@ -172,8 +106,9 @@ export default function KarakterScreen({ onBack, character: initialCharacter, on
               <img
                 alt="Avatar Character"
                 className="w-full h-full object-cover rounded-3xl shadow-[0_8px_30px_rgba(217,119,6,0.15)] border-4 border-white"
-                src={AVATAR_SRC}
+                src={OUTFITS.find(o => o.id === selectedOutfit)?.src || OUTFITS[0].src}
               />
+
             </div>
           </section>
 

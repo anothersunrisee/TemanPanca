@@ -3,8 +3,13 @@ import { Pencil, Shirt, Star, Award, Lock, CheckCircle2, UserCog, LogOut, Chevro
 import MainLayout from '../../layouts/MainLayout';
 import { supabase } from '../../utils/supabase';
 import { SILA_DATA } from '../../data/silaData';
+import { OUTFITS } from '../../data/outfitData';
 
-export default function ProfileScreen({ userName, character, onNotificationClick, onTabChange, onCharacterEdit }) {
+
+export default function ProfileScreen({ userName, character, selectedOutfit, onNotificationClick, onTabChange, onCharacterEdit }) {
+  const outfitData = OUTFITS.find(o => o.id === selectedOutfit);
+  const avatarUrl = outfitData ? outfitData.src : "https://lh3.googleusercontent.com/aida-public/AB6AXuDSQB-ZY7fKQROcz40EZKcM_thowEX-WYRHKAf0_ThgtGne-zXhQ_EpXVMVige_DriQ9eE3Vd1AaoY4ouMfDwTl0rYYktUcZ58YF9CwFcV3NleFY-4TnWjZxZC9iQ1gSmeHmSg3KsBif7YLUg2wqJB7mqC5KP-0k5UJN_h9MATdO8yHwyy0w2GzwgLnB2uC-FSpCFIdAaxjXXN_0KvZ7Wl0bRBhswaIXgXNw5s84RDcYX-268od8Q3frYdUOl5w5YfTDCp6Pj7bBRo";
+
   const [mounted, setMounted] = useState(false);
   const [completedMateri, setCompletedMateri] = useState([]);
   const [missionPoints, setMissionPoints] = useState(0);
@@ -59,7 +64,8 @@ export default function ProfileScreen({ userName, character, onNotificationClick
               <img 
                 alt="User Avatar" 
                 className="w-full h-full object-cover" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSQB-ZY7fKQROcz40EZKcM_thowEX-WYRHKAf0_ThgtGne-zXhQ_EpXVMVige_DriQ9eE3Vd1AaoY4ouMfDwTl0rYYktUcZ58YF9CwFcV3NleFY-4TnWjZxZC9iQ1gSmeHmSg3KsBif7YLUg2wqJB7mqC5KP-0k5UJN_h9MATdO8yHwyy0w2GzwgLnB2uC-FSpCFIdAaxjXXN_0KvZ7Wl0bRBhswaIXgXNw5s84RDcYX-268od8Q3frYdUOl5w5YfTDCp6Pj7bBRo"
+                src={avatarUrl}
+
               />
             </div>
             <div className="absolute bottom-1 right-1 bg-[#fdbb2f] p-2.5 rounded-full shadow-md cursor-pointer hover:scale-110 transition-transform">

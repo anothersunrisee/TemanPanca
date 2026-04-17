@@ -66,7 +66,7 @@ export default function RegisterScreen({ onNameSubmit }) {
 
           <button 
             type="submit"
-            className="group relative w-full max-w-[340px] mx-auto flex items-center justify-center gap-3 bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold text-xl py-4 rounded-full shadow-[0_12px_32px_rgba(131,81,0,0.15)] hover:scale-[0.98] active:scale-95 transition-all duration-200"
+            className="group relative w-full max-w-[340px] mx-auto flex items-center justify-center gap-3 bg-gradient-to-br from-amber-500 to-amber-700 text-white font-headline font-bold text-xl py-4 rounded-full shadow-lg shadow-amber-500/20 hover:scale-[0.98] active:scale-95 transition-all duration-200"
           >
             <span>Lanjut</span>
             <ArrowRight size={24} className="transition-transform group-hover:translate-x-1" />
